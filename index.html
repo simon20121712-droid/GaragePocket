@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#090a0d"><meta name="description" content="GaragePocket — le carnet d'entretien de tes véhicules.">
+<title>GaragePocket</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="GaragePocket">
+<style>
+:root{--bg:#090a0d;--panel:#14161b;--panel2:#1b1e25;--line:#292d36;--muted:#9da3af;--red:#f12635;--red2:#b90f20;--white:#f6f7f9;--green:#36c98a;--amber:#f2b84b}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 50% -20%,#29202a 0,#090a0d 45%);color:var(--white);font:15px/1.45 Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif}
+button,input,select,textarea{font:inherit}button{cursor:pointer}.app{max-width:1120px;margin:auto;min-height:100vh;padding:22px 18px 100px}
+header{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:24px}.brand{display:flex;align-items:center;gap:11px}.brand img{width:46px;height:46px}.brand-name{font-weight:900;font-size:22px;letter-spacing:-1px}.brand-name span{color:var(--red)}.tagline{color:var(--muted);font-size:11px}.top-pill{border:1px solid #353943;border-radius:999px;padding:8px 12px;color:#c8cbd2;font-size:12px}
+.hero{background:linear-gradient(115deg,#1b1d24,#111318 58%,#281016);border:1px solid #34303a;border-radius:24px;padding:24px;position:relative;overflow:hidden;margin-bottom:20px}.hero:after{content:"";position:absolute;width:230px;height:230px;border:28px solid #ed1d32;border-radius:50%;right:-75px;top:-105px;opacity:.14}.eyebrow{color:#ff6670;text-transform:uppercase;font-size:11px;font-weight:800;letter-spacing:1.5px}.hero h1{font-size:clamp(26px,5vw,42px);line-height:1.05;letter-spacing:-1.7px;margin:9px 0}.hero p{color:#b9bdc7;max-width:530px;margin:0 0 17px}.primary,.secondary,.danger{border:0;border-radius:12px;padding:11px 15px;font-weight:800}.primary{background:linear-gradient(135deg,#ff3444,#c90e25);color:white;box-shadow:0 7px 20px #e51b332c}.secondary{background:#252932;color:#f1f2f5;border:1px solid #393e49}.danger{background:#3b1b22;color:#ff9ca4;border:1px solid #6a2631}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0 22px}.stat,.card{background:linear-gradient(145deg,#171a20,#111318);border:1px solid var(--line);border-radius:17px;padding:16px}.stat small{color:var(--muted)}.stat strong{display:block;font-size:23px;margin-top:5px}.section-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:22px 0 12px}.section-head h2{font-size:18px;margin:0}.muted{color:var(--muted)}.vehicle-grid,.two-col{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.vehicle{background:linear-gradient(135deg,#242730,#15171d);border:1px solid #353943;border-radius:18px;padding:17px;position:relative}.vehicle .type{font-size:11px;color:#ff7781;text-transform:uppercase;font-weight:800;letter-spacing:1px}.vehicle h3{margin:5px 0 2px;font-size:18px}.vehicle p{margin:0;color:var(--muted);font-size:13px}.vehicle .odo{margin-top:14px;padding-top:12px;border-top:1px solid #383b45;display:flex;justify-content:space-between;color:#c9cbd2;font-size:12px}.tabs{position:fixed;bottom:0;left:0;right:0;background:#0c0d11ed;backdrop-filter:blur(16px);border-top:1px solid #292d36;display:flex;justify-content:center;z-index:10;padding:9px max(10px,env(safe-area-inset-left)) calc(9px + env(safe-area-inset-bottom))}.tabs-inner{width:min(650px,100%);display:grid;grid-template-columns:repeat(4,1fr);gap:5px}.tab{border:0;background:transparent;color:#858b97;border-radius:12px;padding:7px 3px;font-size:11px}.tab b{display:block;font-size:19px;margin-bottom:2px}.tab.active{color:#ff4856;background:#29151a}.panel{display:none}.panel.active{display:block}.list{display:grid;gap:9px}.item{display:flex;align-items:center;gap:12px;padding:13px;background:#15181e;border:1px solid #2a2e37;border-radius:14px}.dot{width:9px;height:9px;border-radius:50%;background:var(--red);flex:none}.item-main{flex:1;min-width:0}.item-main strong{display:block}.item-main small{color:var(--muted)}.amount{font-weight:800;white-space:nowrap}.empty{padding:22px;text-align:center;border:1px dashed #454a55;border-radius:15px;color:var(--muted)}.form{display:grid;gap:11px}.field{display:grid;gap:5px}.field label{font-size:12px;color:#c4c8d0;font-weight:700}.field input,.field select,.field textarea{width:100%;background:#0e1015;border:1px solid #343945;border-radius:11px;color:white;padding:11px 12px;outline:none}.field input:focus,.field select:focus{border-color:#e82b3b}.actions{display:flex;gap:8px;flex-wrap:wrap}.hint{font-size:12px;color:var(--muted)}.notice{border:1px solid #59451f;background:#241d12;color:#f2d49b;border-radius:13px;padding:12px;font-size:12px;margin-top:18px}.toast{position:fixed;top:15px;left:50%;transform:translateX(-50%);background:#e8fff4;color:#10291e;padding:10px 15px;border-radius:999px;font-weight:800;z-index:20;display:none;box-shadow:0 8px 30px #0008}.footer{color:#737986;text-align:center;font-size:11px;margin:28px 0 0}
+@media(max-width:650px){.app{padding:16px 13px 100px}.hero{padding:19px}.stats{gap:8px}.stat{padding:12px}.stat strong{font-size:19px}.vehicle-grid,.two-col{grid-template-columns:1fr}.top-pill{display:none}}
+</style>
+</head>
+<body>
+<div class="toast" id="toast"></div>
+<main class="app">
+<header><div class="brand"><img src="logo.svg" alt="GaragePocket"><div><div class="brand-name">Garage<span>Pocket</span></div><div class="tagline">TA MÉCANIQUE, DANS TA POCHE.</div></div></div><div class="top-pill">● VERSION BÊTA · GRATUITE</div></header>
+<section class="hero"><div class="eyebrow">Bienvenue dans ton garage</div><h1>Garde le contrôle<br>de tes véhicules.</h1><p>Entretiens, réparations et dépenses : retrouve tout au même endroit.</p><button class="primary" onclick="openModal('vehicleModal')">＋ Ajouter un véhicule</button></section>
+<div class="stats">
+ <div class="stat"><small>Mes véhicules</small><strong id="statVehicles">0</strong></div>
+ <div class="stat"><small>Entretiens notés</small><strong id="statServices">0</strong></div>
+ <div class="stat"><small>Dépenses suivies</small><strong id="statSpend">0 €</strong></div>
+</div>
+<section id="home" class="panel active">
+ <div class="section-head"><h2>Mon garage</h2><button class="secondary" onclick="openModal('vehicleModal')">＋ Ajouter</button></div>
+ <div id="vehicleList" class="vehicle-grid"></div>
+ <div class="section-head"><h2>Dernières activités</h2><button class="secondary" onclick="showTab('history')">Tout voir</button></div>
+ <div id="recentList" class="list"></div>
+ <div class="notice">⚠️ GaragePocket est un carnet de suivi, pas un outil de diagnostic. Pour une réparation ou un élément de sécurité, demande conseil à un mécanicien qualifié.</div>
+</section>
+<section id="history" class="panel">
+ <div class="section-head"><h2>Entretien & réparations</h2><button class="primary" onclick="openModal('serviceModal')">＋ Ajouter</button></div>
+ <div id="historyList" class="list"></div>
+</section>
+<section id="budget" class="panel">
+ <div class="section-head"><h2>Mon budget</h2><button class="primary" onclick="openModal('expenseModal')">＋ Dépense</button></div>
+ <div class="stat" style="margin-bottom:12px"><small>Total enregistré</small><strong id="budgetTotal">0 €</strong><span class="hint">Somme des dépenses que tu as saisies.</span></div>
+ <div id="expenseList" class="list"></div>
+</section>
+<section id="tips" class="panel">
+ <div class="section-head"><h2>Conseils du garage</h2></div>
+ <div class="list">
+  <article class="card"><div class="eyebrow">Entretien</div><h3>Garde les factures</h3><p class="muted">Conserve les factures et note la date ainsi que le kilométrage après chaque intervention.</p></article>
+  <article class="card"><div class="eyebrow">Sécurité</div><h3>Vérifie régulièrement les pneus</h3><p class="muted">Contrôle la pression à froid selon les recommandations du constructeur et surveille l'usure.</p></article>
+  <article class="card"><div class="eyebrow">Organisation</div><h3>Note les symptômes</h3><p class="muted">En cas de bruit ou de voyant, note quand il apparaît. Ne retarde pas un contrôle si le véhicule semble dangereux.</p></article>
+ </div>
+ <p class="hint">Les conseils sont généraux. Consulte toujours le manuel du constructeur.</p>
+</section>
+<div class="footer">GaragePocket · Prototype personnel · Données stockées sur cet appareil</div>
+</main>
+<nav class="tabs"><div class="tabs-inner">
+<button class="tab active" data-tab="home" onclick="showTab('home')"><b>⌂</b>Accueil</button>
+<button class="tab" data-tab="history" onclick="showTab('history')"><b>🔧</b>Entretien</button>
+<button class="tab" data-tab="budget" onclick="showTab('budget')"><b>€</b>Budget</button>
+<button class="tab" data-tab="tips" onclick="showTab('tips')"><b>✦</b>Conseils</button>
+</div></nav>
+
+<div id="vehicleModal" class="modal" hidden><div class="card"><div class="section-head"><h2>Ajouter un véhicule</h2><button class="secondary" onclick="closeModal('vehicleModal')">✕</button></div><form class="form" id="vehicleForm">
+<div class="field"><label>Type</label><select name="type"><option>Voiture</option><option>Moto</option><option>50cc</option><option>Autre</option></select></div>
+<div class="field"><label>Marque et modèle *</label><input name="name" required placeholder="Ex. Peugeot 208, Rieju MRT"></div>
+<div class="field"><label>Année</label><input name="year" type="number" min="1900" max="2099" placeholder="Ex. 2018"></div>
+<div class="field"><label>Kilométrage actuel</label><input name="km" type="number" min="0" placeholder="Ex. 65000"></div>
+<div class="actions"><button class="primary">Enregistrer</button><button type="button" class="secondary" onclick="closeModal('vehicleModal')">Annuler</button></div></form></div></div>
+<div id="serviceModal" class="modal" hidden><div class="card"><div class="section-head"><h2>Noter une intervention</h2><button class="secondary" onclick="closeModal('serviceModal')">✕</button></div><form class="form" id="serviceForm">
+<div class="field"><label>Véhicule *</label><select name="vehicle" class="vehicleOptions" required></select></div>
+<div class="field"><label>Type</label><select name="kind"><option>Entretien</option><option>Réparation</option><option>Modification</option><option>Contrôle</option></select></div>
+<div class="field"><label>Intervention *</label><input name="title" required placeholder="Ex. Vidange, pneus, plaquettes"></div>
+<div class="field"><label>Date</label><input name="date" type="date"></div>
+<div class="field"><label>Kilométrage</label><input name="km" type="number" min="0" placeholder="Kilométrage au moment de l'intervention"></div>
+<div class="field"><label>Coût (€)</label><input name="cost" type="number" min="0" step="0.01" placeholder="0"></div>
+<div class="actions"><button class="primary">Enregistrer</button><button type="button" class="secondary" onclick="closeModal('serviceModal')">Annuler</button></div></form></div></div>
+<div id="expenseModal" class="modal" hidden><div class="card"><div class="section-head"><h2>Ajouter une dépense</h2><button class="secondary" onclick="closeModal('expenseModal')">✕</button></div><form class="form" id="expenseForm">
+<div class="field"><label>Véhicule *</label><select name="vehicle" class="vehicleOptions" required></select></div>
+<div class="field"><label>Libellé *</label><input name="title" required placeholder="Ex. Essence, pièce, assurance"></div>
+<div class="field"><label>Montant (€) *</label><input name="amount" type="number" min="0.01" step="0.01" required></div>
+<div class="field"><label>Date</label><input name="date" type="date"></div>
+<div class="actions"><button class="primary">Enregistrer</button><button type="button" class="secondary" onclick="closeModal('expenseModal')">Annuler</button></div></form></div></div>
+<style>.modal{position:fixed;inset:0;background:#000b;display:grid;place-items:center;padding:16px;z-index:30}.modal[hidden]{display:none}.modal>.card{width:min(520px,100%);max-height:90vh;overflow:auto}</style>
+<script>
+const KEY='garagepocket-v1';
+let data=JSON.parse(localStorage.getItem(KEY)||'{"vehicles":[],"services":[],"expenses":[]}');
+const money=n=>new Intl.NumberFormat('fr-FR',{style:'currency',currency:'EUR',maximumFractionDigits:2}).format(Number(n)||0);
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function save(){localStorage.setItem(KEY,JSON.stringify(data));render()}
+function toast(s){let t=document.getElementById('toast');t.textContent=s;t.style.display='block';setTimeout(()=>t.style.display='none',2100)}
+function showTab(id){document.querySelectorAll('.panel').forEach(x=>x.classList.toggle('active',x.id===id));document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('active',x.dataset.tab===id));window.scrollTo({top:0,behavior:'smooth'})}
+function openModal(id){if(!data.vehicles.length&&id!=='vehicleModal'){toast('Ajoute d’abord un véhicule');return}document.querySelectorAll('.vehicleOptions').forEach(s=>s.innerHTML=data.vehicles.map(v=>`<option value="${v.id}">${esc(v.name)}</option>`).join(''));document.getElementById(id).hidden=false}
+function closeModal(id){document.getElementById(id).hidden=true}
+function vehicleName(id){return data.vehicles.find(v=>v.id===id)?.name||'Véhicule supprimé'}
+function render(){
+ document.getElementById('statVehicles').textContent=data.vehicles.length;
+ document.getElementById('statServices').textContent=data.services.length;
+ const total=data.expenses.reduce((a,e)=>a+Number(e.amount||0),0)+data.services.reduce((a,e)=>a+Number(e.cost||0),0);
+ document.getElementById('statSpend').textContent=money(total);document.getElementById('budgetTotal').textContent=money(total);
+ const vl=document.getElementById('vehicleList');
+ vl.innerHTML=data.vehicles.length?data.vehicles.map(v=>`<article class="vehicle"><div class="type">${esc(v.type)}</div><h3>${esc(v.name)}</h3><p>${v.year?esc(v.year)+' · ':''}GaragePocket</p><div class="odo"><span>Compteur</span><strong>${v.km?Number(v.km).toLocaleString('fr-FR')+' km':'Non renseigné'}</strong></div><div class="actions" style="margin-top:12px"><button class="secondary" onclick="editKm('${v.id}')">Modifier km</button><button class="danger" onclick="deleteVehicle('${v.id}')">Supprimer</button></div></article>`).join(''):'<div class="empty">Ton garage est vide.<br>Ajoute ton premier véhicule pour commencer.</div>';
+ const all=[...data.services.map(x=>({...x,desc:x.kind,displayCost:x.cost})),...data.expenses.map(x=>({...x,desc:'Dépense',displayCost:x.amount}))].sort((a,b)=>(b.date||'').localeCompare(a.date||''));
+ const row=x=>`<div class="item"><span class="dot"></span><div class="item-main"><strong>${esc(x.title)}</strong><small>${esc(vehicleName(x.vehicle))} · ${esc(x.date||'Date non précisée')} ${x.km?'· '+Number(x.km).toLocaleString('fr-FR')+' km':''}</small></div><div class="amount">${x.displayCost?money(x.displayCost):''}</div></div>`;
+ document.getElementById('recentList').innerHTML=all.length?all.slice(0,4).map(row).join(''):'<div class="empty">Aucune activité pour le moment.</div>';
+ document.getElementById('historyList').innerHTML=data.services.length?data.services.slice().sort((a,b)=>(b.date||'').localeCompare(a.date||'')).map(x=>`<div class="item"><span class="dot"></span><div class="item-main"><strong>${esc(x.title)}</strong><small>${esc(x.kind)} · ${esc(vehicleName(x.vehicle))} · ${esc(x.date||'Date non précisée')} ${x.km?'· '+Number(x.km).toLocaleString('fr-FR')+' km':''}</small></div><div class="amount">${x.cost?money(x.cost):''}</div><button class="danger" onclick="deleteEntry('services','${x.id}')">✕</button></div>`).join(''):'<div class="empty">Aucun entretien enregistré.</div>';
+ document.getElementById('expenseList').innerHTML=data.expenses.length?data.expenses.slice().sort((a,b)=>(b.date||'').localeCompare(a.date||'')).map(x=>`<div class="item"><span class="dot"></span><div class="item-main"><strong>${esc(x.title)}</strong><small>${esc(vehicleName(x.vehicle))} · ${esc(x.date||'Date non précisée')}</small></div><div class="amount">${money(x.amount)}</div><button class="danger" onclick="deleteEntry('expenses','${x.id}')">✕</button></div>`).join(''):'<div class="empty">Aucune dépense enregistrée.</div>';
+}
+function id(){return crypto.randomUUID?crypto.randomUUID():String(Date.now()+Math.random())}
+document.getElementById('vehicleForm').addEventListener('submit',e=>{e.preventDefault();let f=new FormData(e.target);data.vehicles.push({id:id(),type:f.get('type'),name:f.get('name').trim(),year:f.get('year'),km:f.get('km')});save();e.target.reset();closeModal('vehicleModal');toast('Véhicule ajouté')});
+document.getElementById('serviceForm').addEventListener('submit',e=>{e.preventDefault();let f=new FormData(e.target);data.services.push({id:id(),vehicle:f.get('vehicle'),kind:f.get('kind'),title:f.get('title').trim(),date:f.get('date'),km:f.get('km'),cost:f.get('cost')});save();e.target.reset();closeModal('serviceModal');toast('Intervention enregistrée')});
+document.getElementById('expenseForm').addEventListener('submit',e=>{e.preventDefault();let f=new FormData(e.target);data.expenses.push({id:id(),vehicle:f.get('vehicle'),title:f.get('title').trim(),amount:f.get('amount'),date:f.get('date')});save();e.target.reset();closeModal('expenseModal');toast('Dépense enregistrée')});
+function deleteEntry(type,key){if(confirm('Supprimer cet élément ?')){data[type]=data[type].filter(x=>x.id!==key);save();toast('Élément supprimé')}}
+function deleteVehicle(key){if(confirm('Supprimer ce véhicule ? Les interventions et dépenses associées resteront dans l’historique.')){data.vehicles=data.vehicles.filter(x=>x.id!==key);save();toast('Véhicule supprimé')}}
+function editKm(key){let v=data.vehicles.find(x=>x.id===key);let km=prompt('Nouveau kilométrage :',v.km||'');if(km!==null&&km.trim()!==''&&Number(km)>=0){v.km=km;save();toast('Kilométrage mis à jour')}}
+render();
+</script>
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./service-worker.js").catch(err => {
+      console.log("Service worker non enregistré :", err);
+    });
+  });
+}
+</script>
+</body></html>
